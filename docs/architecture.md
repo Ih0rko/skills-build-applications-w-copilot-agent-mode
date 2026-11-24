@@ -28,7 +28,7 @@ OctoFit Tracker is a three-tier application for a school fitness program. The st
 
 ## Implementation decisions
 
-- Presentation tier decision: Build a responsive React 19 single-page app with Vite, React Router, and Bootstrap. Keep components focused on rendering and interaction, and use the shared API client with relative `/api` paths. Show loading, empty, and error states; do not put business rules or database access in the browser.
+- Presentation tier decision: Build a responsive React 19 single-page app with Vite, React Router, and Bootstrap. Keep components focused on rendering and interaction, and use the shared API client with relative `/api` paths. Show loading, empty, and error states.
 - Logic tier decision: Use the Express/TypeScript API as the boundary for input validation and business rules. Keep route handlers thin and put reusable behavior in services; return deliberate 4xx responses for invalid or missing resources. Keep the API unauthenticated for this exercise, as specified by the project constraints.
 - Data tier decision: Persist users, teams, and activities in MongoDB through Mongoose models. Use schema validation and references for relationships; only the API accesses the database. Keep seed data deterministic so tests and local development are repeatable.
 - Activity tracking approach: Accept only the documented activity fields, validate the user and team references and activity values on the server, and calculate points there rather than trusting client-supplied scores. Store the activity with its team and user references and a server-generated `occurredAt` timestamp.
